@@ -1,0 +1,92 @@
+---
+import StudioButton from '../ui/StudioButton.astro';
+import ThemeToggle from '../ui/ThemeToggle.astro';
+
+const navItems = [
+  { name: 'Soluzioni', href: '#features' },
+  { name: 'Metodo', href: '#method' },
+  { name: 'Chi Siamo', href: '#about' },
+];
+---
+
+<nav class="fixed top-0 w-full z-50 border-b border-zinc-200 dark:border-zinc-800 bg-background/80 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 group">
+        <div class="w-8 h-8 rounded-lg bg-zinc-900 dark:bg-zinc-50 flex items-center justify-center text-white dark:text-black font-bold text-xl group-hover:scale-105 transition-transform">
+          A
+        </div>
+        <span class="text-lg font-bold tracking-tight text-foreground">Studio Alkan</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden md:flex items-center gap-8">
+        {navItems.map(item => (
+          <a href={item.href} class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            {item.name}
+          </a>
+        ))}
+        
+        <div class="flex items-center gap-4 pl-4 border-l border-zinc-200 dark:border-zinc-800">
+            <ThemeToggle />
+            <StudioButton href="#contact" variant="primary">
+            Inizia Ora
+            </StudioButton>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <div class="md:hidden flex items-center gap-4">
+        <ThemeToggle />
+        <button id="mobile-menu-toggle" class="text-foreground p-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu (Simple implementation) -->
+<div id="mobile-menu" class="fixed inset-0 z-40 bg-background pt-20 px-6 transform translate-x-full transition-transform duration-300 md:hidden">
+    <div class="flex flex-col gap-6">
+        {navItems.map(item => (
+            <a href={item.href} class="text-lg font-medium text-foreground border-b border-zinc-200 dark:border-zinc-800 pb-4">
+                {item.name}
+            </a>
+        ))}
+        <StudioButton href="#contact" variant="primary" class="w-full justify-center mt-4">
+            Inizia Ora
+        </StudioButton>
+    </div>
+</div>
+
+<script>
+    const btn = document.getElementById('mobile-menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    let isOpen = false;
+
+    btn?.addEventListener('click', () => {
+        isOpen = !isOpen;
+        if (isOpen) {
+            menu?.classList.remove('translate-x-full');
+            document.body.style.overflow = 'hidden';
+        } else {
+            menu?.classList.add('translate-x-full');
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Close on link click
+    menu?.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            isOpen = false;
+            menu?.classList.add('translate-x-full');
+            document.body.style.overflow = 'auto';
+        });
+    });
+</script>

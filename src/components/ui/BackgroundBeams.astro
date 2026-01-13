@@ -1,0 +1,27 @@
+---
+---
+<div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+    <!-- Beam 1 -->
+    <div class="absolute top-[-20%] left-[20%] w-[1px] h-[150%] bg-gradient-to-b from-transparent via-white/10 to-transparent opacity-50 rotate-[20deg] animate-beam-slow"></div>
+    
+    <!-- Beam 2 -->
+    <div class="absolute top-[-20%] right-[30%] w-[1px] h-[150%] bg-gradient-to-b from-transparent via-white/5 to-transparent opacity-30 rotate-[-15deg] animate-beam-slower"></div>
+</div>
+
+<style>
+    @keyframes beam {
+        0% { transform: translateY(-100%) rotate(var(--rotation)); opacity: 0; }
+        50% { opacity: 1; }
+        100% { transform: translateY(100%) rotate(var(--rotation)); opacity: 0; }
+    }
+    
+    .animate-beam-slow {
+        --rotation: 20deg;
+        animation: beam 7s infinite linear;
+    }
+    
+    .animate-beam-slower {
+        --rotation: -15deg;
+        animation: beam 12s infinite linear 2s;
+    }
+</style>

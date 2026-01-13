@@ -1,0 +1,133 @@
+---
+import '../styles/global.css';
+import StudioNavbar from '../components/layout/StudioNavbar.astro';
+import StudioFooter from '../components/layout/StudioFooter.astro';
+import BackgroundBeams from '../components/ui/BackgroundBeams.astro';
+import { ClientRouter } from 'astro:transitions';
+
+interface Props {
+	title: string;
+	description?: string;
+	image?: string;
+}
+
+const { 
+	title, 
+	description = "Studio Alkan - AI Automation & Consulting. Trasformiamo le tue operazioni aziendali con Agenti AI intelligenti e automazioni su misura.",
+	image = "/studioalkan/abstract_neural_structure.png"
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="it" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/studioalkan/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		
+		<!-- SEO -->
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={new URL(image, Astro.url)} />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={new URL(image, Astro.url)} />
+		
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+		<ClientRouter />
+	</head>
+	<body class="bg-background text-foreground antialiased selection:bg-zinc-800 selection:text-white relative">
+		
+		<StudioNavbar />
+
+		<!-- Dot Matrix Background & Beams -->
+		<div class="fixed inset-0 -z-20 bg-background bg-dot-sparse [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+		
+		<!-- Global Spotlight (Lantern Effect) -->
+		<div 
+			id="global-spotlight"
+			class="pointer-events-none fixed inset-0 -z-10 transition-colors duration-300 ease-out"
+		></div>
+
+		<BackgroundBeams />
+		
+		<slot />
+		
+		<StudioFooter />
+		
+		<style>
+			#global-spotlight {
+				background: radial-gradient(
+					var(--spotlight-size, 600px) circle at var(--mouse-x, 0) var(--mouse-y, 0), 
+					var(--spotlight-color, rgba(255,255,255,0.03)), 
+					transparent 40%
+				);
+			}
+		</style>
+
+		<script>
+			const spotlight = document.getElementById('global-spotlight');
+			
+			const updateSpotlight = (e: MouseEvent) => {
+				if (spotlight) {
+					spotlight.style.setProperty('--mouse-x', `${e.clientX}px`);
+					spotlight.style.setProperty('--mouse-y', `${e.clientY}px`);
+				}
+			};
+
+			const pulseSpotlight = (isActive: boolean) => {
+				if (spotlight) {
+					if (isActive) {
+						spotlight.style.setProperty('--spotlight-size', '900px');
+						spotlight.style.setProperty('--spotlight-color', 'rgba(16, 185, 129, 0.15)'); // Emerald pulse
+					} else {
+						spotlight.style.setProperty('--spotlight-size', '600px');
+						spotlight.style.setProperty('--spotlight-color', 'rgba(255,255,255,0.03)');
+					}
+				}
+			};
+
+			document.addEventListener('mousemove', updateSpotlight);
+			document.addEventListener('mousedown', () => pulseSpotlight(true));
+			document.addEventListener('mouseup', () => pulseSpotlight(false));
+			
+			// Cleanup
+			document.addEventListener('astro:before-preparation', () => {
+				document.removeEventListener('mousemove', updateSpotlight);
+			});
+			
+			// Re-attach
+			document.addEventListener('astro:page-load', () => {
+				const newSpotlight = document.getElementById('global-spotlight');
+				if (newSpotlight) {
+					document.addEventListener('mousemove', (e) => {
+						newSpotlight.style.setProperty('--mouse-x', `${e.clientX}px`);
+						newSpotlight.style.setProperty('--mouse-y', `${e.clientY}px`);
+					});
+					document.addEventListener('mousedown', () => {
+						newSpotlight.style.setProperty('--spotlight-size', '900px');
+						newSpotlight.style.setProperty('--spotlight-color', 'rgba(16, 185, 129, 0.15)');
+					});
+					document.addEventListener('mouseup', () => {
+						newSpotlight.style.setProperty('--spotlight-size', '600px');
+						newSpotlight.style.setProperty('--spotlight-color', 'rgba(255,255,255,0.03)');
+					});
+				}
+			});
+		</script>
+	</body>
+</html>

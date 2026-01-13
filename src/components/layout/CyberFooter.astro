@@ -1,0 +1,55 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="relative z-10 border-t border-white/5 bg-black/40 backdrop-blur-md pt-16 pb-8">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            
+            <!-- Brand Column -->
+            <div class="col-span-1 md:col-span-2">
+                <a href="/" class="text-2xl font-bold font-['Exo_2'] tracking-tighter text-white mb-6 block">
+                    STUDIO<span class="text-neon-cyan">ALKAN</span>
+                </a>
+                <p class="text-gray-400 max-w-sm mb-6">
+                    Miglioriamo l'efficienza operativa attraverso soluzioni di automazione AI e Machine Learning su misura.
+                </p>
+                <div class="flex space-x-4">
+                    <!-- Social Placeholders -->
+                    <a href="#" class="text-gray-400 hover:text-neon-cyan transition-colors">LinkedIn</a>
+                    <a href="#" class="text-gray-400 hover:text-neon-cyan transition-colors">Twitter</a>
+                    <a href="#" class="text-gray-400 hover:text-neon-cyan transition-colors">GitHub</a>
+                </div>
+            </div>
+
+            <!-- Links Column -->
+            <div>
+                <h4 class="text-lg font-bold text-white mb-6 font-['Exo_2']">Esplora</h4>
+                <ul class="space-y-4">
+                    <li><a href="/about" class="text-gray-400 hover:text-neon-cyan transition-colors">Chi Siamo</a></li>
+                    <li><a href="/services" class="text-gray-400 hover:text-neon-cyan transition-colors">I Nostri Servizi</a></li>
+                    <li><a href="/contact" class="text-gray-400 hover:text-neon-cyan transition-colors">Contatti</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Column -->
+            <div>
+                <h4 class="text-lg font-bold text-white mb-6 font-['Exo_2']">Contatti</h4>
+                <ul class="space-y-4">
+                    <li class="flex items-start space-x-3 text-gray-400">
+                        <span>📧</span>
+                        <a href="mailto:studioalkan@proton.me" class="hover:text-neon-cyan transition-colors">studioalkan@proton.me</a>
+                    </li>
+                    <li class="flex items-start space-x-3 text-gray-400">
+                        <span>📍</span>
+                        <span>Milano, Italia</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="border-t border-white/5 pt-8 text-center text-sm text-gray-500">
+            <p>&copy; {currentYear} Studio Alkan Srl. Tutti i diritti riservati. P.IVA 12345678901</p>
+        </div>
+    </div>
+</footer>

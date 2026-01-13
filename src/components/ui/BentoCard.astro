@@ -1,0 +1,58 @@
+---
+interface Props {
+  class?: string;
+  title?: string;
+  gradient?: boolean;
+}
+
+const { class: className, title, gradient = false } = Astro.props;
+---
+
+<div class:list={[
+  "group relative overflow-hidden rounded-xl border border-border bg-card/50 p-6 shadow-sm transition-all hover:border-zinc-500 dark:hover:border-zinc-700 spotlight-card",
+  className
+]}>
+  
+  <!-- Mouse Tracking Spotlight -->
+  <div 
+    class="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-10"
+    style="background: radial-gradient(600px circle at var(--mouse-x, 0) var(--mouse-y, 0), var(--dot-color), transparent 40%);"
+  ></div>
+
+  <!-- Inner Content -->
+  <div class="relative z-20 h-full flex flex-col">
+      {gradient && (
+        <div class="absolute inset-0 bg-gradient-to-br from-zinc-200/50 dark:from-zinc-800/20 to-transparent opacity-50 -z-10" />
+      )}
+      
+      {title && (
+        <h3 class="mb-2 text-lg font-semibold tracking-tight text-foreground">{title}</h3>
+      )}
+
+      <slot />
+  </div>
+</div>
+
+<script>
+  // Spotlight Effect Logic
+  const initSpotlight = () => {
+    const cards = document.querySelectorAll('.spotlight-card');
+    
+    cards.forEach((card) => {
+      card.addEventListener('mousemove', (e: any) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        // @ts-ignore
+        card.style.setProperty('--mouse-x', `${x}px`);
+        // @ts-ignore
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+  };
+
+  // Run on load and after view transitions
+  initSpotlight();
+  document.addEventListener('astro:page-load', initSpotlight);
+</script>

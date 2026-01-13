@@ -1,0 +1,44 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t border-zinc-800 bg-background pt-16 pb-8">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            
+            <div class="col-span-1 md:col-span-2">
+                <a href="/" class="text-lg font-bold tracking-tight text-white mb-6 block flex items-center gap-2">
+                    <div class="w-5 h-5 bg-white rounded-sm"></div>
+                    STUDIO ALKAN
+                </a>
+                <p class="text-zinc-500 max-w-sm text-sm leading-relaxed">
+                    Engineering intelligence for the modern enterprise.
+                    <br/>Focused on scalability, security, and measurable ROI.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="text-sm font-semibold text-white mb-6 uppercase tracking-wider">Studio</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="/about" class="text-zinc-500 hover:text-white transition-colors">Chi Siamo</a></li>
+                    <li><a href="/services" class="text-zinc-500 hover:text-white transition-colors">Stack Tecnologico</a></li>
+                    <li><a href="/contact" class="text-zinc-500 hover:text-white transition-colors">Lavora con noi</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-sm font-semibold text-white mb-6 uppercase tracking-wider">Legale</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="#" class="text-zinc-500 hover:text-white transition-colors">Privacy Policy</a></li>
+                    <li><a href="#" class="text-zinc-500 hover:text-white transition-colors">Cookie Policy</a></li>
+                    <li><a href="#" class="text-zinc-500 hover:text-white transition-colors">Termini di Servizio</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="border-t border-zinc-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-zinc-600">
+            <p>&copy; {currentYear} Studio Alkan Srl.</p>
+            <p>Milano, Italia • P.IVA 12345678901</p>
+        </div>
+    </div>
+</footer>

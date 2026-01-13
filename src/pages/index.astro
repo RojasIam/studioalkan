@@ -1,0 +1,333 @@
+---
+import Layout from '../layouts/Layout.astro';
+import StudioButton from '../components/ui/StudioButton.astro';
+import BentoCard from '../components/ui/BentoCard.astro';
+import Marquee from '../components/ui/Marquee.astro';
+
+const services = [
+    {
+        title: "Micro-Automazione",
+        desc: "Connetti le tue app (Notion, Gmail, Stripe) per lavorare all'unisono.",
+        tags: ["n8n", "Zapier", "Make", "Python Scripts"]
+    },
+    {
+        title: "Agenti AI Custom",
+        desc: "Bot addestrati sulla tua knowledge base aziendale per rispondere a clienti o staff.",
+        tags: ["OpenAI API", "LangChain", "Vector DB", "RAG"]
+    },
+    {
+        title: "Sviluppo Software Custom",
+        desc: "Creiamo piattaforme dedicate e gestionali su misura, progettati da zero per adattarsi perfettamente ai tuoi processi, non il contrario.",
+        tags: ["Full Stack", "SaaS Development", "Cloud Native", "Scalable App"]
+    }
+];
+
+const values = [
+    { title: "Precisione", desc: "Codice pulito, architetture scalabili." },
+    { title: "Velocità", desc: "Deployment rapidi, iterazioni continue." },
+    { title: "Trasparenza", desc: "Nessun black-box. Sai sempre cosa fa l'AI." }
+];
+---
+
+<Layout title="Studio Alkan | AI Automation & Consulting">
+	<main class="flex flex-col relative overflow-hidden pt-32 pb-20 px-6">
+		
+		<!-- Hero Section -->
+		<section id="home" class="max-w-4xl mx-auto text-center mb-20 md:mb-32 z-10 relative px-4">
+			<div class="inline-flex items-center rounded-full border border-border bg-card/50 px-3 py-1 text-sm text-muted-foreground backdrop-blur-xl mb-8">
+				<span class="flex h-2 w-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
+				Disponibile per nuovi progetti
+			</div>
+
+			<h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground mb-6">
+				Making AI <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500">Human.</span>
+			</h1>
+
+			<p class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
+				Trasformiamo le tue operazioni aziendali con Agenti AI intelligenti e automazioni su misura. 
+				<span class="text-foreground font-medium">Meno lavoro manuale, più valore umano.</span>
+			</p>
+			
+			<div class="flex gap-4 justify-center items-center">
+				<StudioButton variant="outline" href="mailto:studioalkan@proton.me">
+					Inizia il Progetto
+				</StudioButton>
+				<StudioButton variant="outline" href="#services">
+					Esplora Soluzioni
+				</StudioButton>
+			</div>
+		</section>
+
+        <!-- Tech Stack Marquee -->
+        <!-- Tech Stack Marquee -->
+        <section class="max-w-full overflow-hidden mb-20 md:mb-32 border-y border-border bg-muted/20 py-8 backdrop-blur-sm">
+            <Marquee items={[
+                '<img src="https://cdn.simpleicons.org/openai/white" class="w-8 h-8 tech-icon transition-all duration-300" alt="OpenAI" />', 
+                '<img src="https://cdn.simpleicons.org/anthropic/white" class="w-8 h-8 tech-icon transition-all duration-300" alt="Anthropic" />', 
+                '<img src="https://cdn.simpleicons.org/python/white" class="w-8 h-8 tech-icon transition-all duration-300" alt="Python" />', 
+                '<img src="https://cdn.simpleicons.org/googlecloud/white" class="w-8 h-8 tech-icon transition-all duration-300" alt="Google Cloud" />', 
+                '<img src="https://cdn.simpleicons.org/n8n/white" class="w-8 h-8 tech-icon transition-all duration-300" alt="n8n" />', 
+                '<img src="https://cdn.simpleicons.org/make/white" class="w-8 h-8 tech-icon transition-all duration-300" alt="Make" />', 
+                '<img src="https://cdn.simpleicons.org/supabase/white" class="w-8 h-8 tech-icon transition-all duration-300" alt="Supabase" />', 
+                '<img src="https://cdn.simpleicons.org/react/white" class="w-8 h-8 tech-icon transition-all duration-300" alt="React" />', 
+                '<img src="https://cdn.simpleicons.org/typescript/white" class="w-8 h-8 tech-icon transition-all duration-300" alt="TypeScript" />', 
+                '<img src="https://cdn.simpleicons.org/huggingface/white" class="w-8 h-8 tech-icon transition-all duration-300" alt="HuggingFace" />'
+            ]} speed="normal" />
+            
+            <style is:global>
+                /* Light Mode: Make white icons black */
+                .tech-icon {
+                    filter: brightness(0);
+                    opacity: 0.7;
+                }
+                .tech-icon:hover {
+                    opacity: 1;
+                }
+                
+                /* Dark Mode: Keep icons white */
+                .dark .tech-icon {
+                    filter: brightness(0) invert(1); /* Flip black to white if base is black, but base IS white. So filter: none */
+                    filter: none;
+                    opacity: 0.7;
+                }
+            </style>
+        </section>
+
+		<!-- Services Highlights Grid -->
+		<section id="services" class="max-w-6xl mx-auto mb-20 md:mb-32 px-4">
+            <div class="mb-12">
+                <span class="text-emerald-500 font-mono text-sm tracking-wider uppercase">Cosa Facciamo</span>
+                <h2 class="text-3xl font-bold text-foreground mb-4">Le Nostre Soluzioni</h2>
+                <p class="text-muted-foreground max-w-xl">
+                    Approccio modulare e scalabile per ogni esigenza di automazione.
+                </p>
+            </div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- 1. Agenti AI -->
+				<BentoCard class="group flex flex-col h-full hover:border-zinc-500 transition-colors duration-500" title="Agenti AI & Chatbot">
+                    <div class="mb-4 p-2 bg-card/50 rounded-lg w-fit border border-border">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+                    </div>
+					<p class="text-muted-foreground text-sm mb-6 flex-grow">
+                        Agenti conversazionali addestrati sui tuoi dati. Rispondono a clienti h24, qualificano lead e gestiscono ticket di supporto.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mt-auto">
+                        <img src="https://cdn.simpleicons.org/openai/white" class="w-6 h-6 tech-icon transition-opacity hover:opacity-80" title="OpenAI" alt="OpenAI" />
+                        <img src="https://cdn.simpleicons.org/python/white" class="w-6 h-6 tech-icon transition-opacity hover:opacity-80" title="Python" alt="Python" />
+                        <img src="https://cdn.simpleicons.org/langchain/white" class="w-6 h-6 tech-icon transition-opacity hover:opacity-80" title="LangChain" alt="LangChain" />
+                    </div>
+				</BentoCard>
+
+				<!-- 2. Micro Automazione -->
+				<BentoCard class="group flex flex-col h-full hover:border-zinc-500 transition-colors duration-500" title="Micro-Automazione">
+                    <div class="mb-4 p-2 bg-card/50 rounded-lg w-fit border border-border">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"/><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M12 2v2"/><path d="M12 22v-2"/><path d="m17 20.66-1-1.73"/><path d="M11 10.27 7 3.34"/><path d="m20.66 17-1.73-1"/><path d="m3.34 7 1.73 1"/><path d="M14 12h8"/><path d="M2 12h2"/><path d="m20.66 7-1.73 1"/><path d="m3.34 17 1.73-1"/><path d="m17 3.34-1 1.73"/><path d="M11 13.73 7 20.66"/></svg>
+                    </div>
+					<p class="text-muted-foreground text-sm mb-6 flex-grow">
+                        Connetti le tue app (Notion, Gmail, Stripe) per lavorare all'unisono. Elimina il copia-incolla manuale per sempre.
+                    </p>
+                     <div class="flex flex-wrap gap-4 mt-auto">
+                        <img src="https://cdn.simpleicons.org/n8n/white" class="w-6 h-6 tech-icon transition-opacity hover:opacity-80" title="n8n" alt="n8n" />
+                        <img src="https://cdn.simpleicons.org/zapier/white" class="w-6 h-6 tech-icon transition-opacity hover:opacity-80" title="Zapier" alt="Zapier" />
+                        <img src="https://cdn.simpleicons.org/make/white" class="w-6 h-6 tech-icon transition-opacity hover:opacity-80" title="Make" alt="Make" />
+                    </div>
+				</BentoCard>
+
+                <!-- 3. Sviluppo Software -->
+                <!-- 3. Sviluppo Software -->
+                <BentoCard class="group flex flex-col h-full hover:border-zinc-500 transition-colors duration-500" title="Sviluppo Software Custom">
+                    <div class="mb-4 p-2 bg-card/50 rounded-lg w-fit border border-border">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+                    </div>
+                     <p class="text-muted-foreground text-sm mb-6 flex-grow">
+                        Piattaforme dedicate e gestionali SaaS progettati da zero. Scalabili, sicuri e proprietari.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mt-auto">
+                        <img src="https://cdn.simpleicons.org/react/white" class="w-6 h-6 tech-icon transition-opacity hover:opacity-80" title="React" alt="React" />
+                        <img src="https://cdn.simpleicons.org/supabase/white" class="w-6 h-6 tech-icon transition-opacity hover:opacity-80" title="Supabase" alt="Supabase" />
+                        <img src="https://cdn.simpleicons.org/astro/white" class="w-6 h-6 tech-icon transition-opacity hover:opacity-80" title="Astro" alt="Astro" />
+                    </div>
+                </BentoCard>
+
+                <!-- 4. Integrazione CRM -->
+                <BentoCard class="group flex flex-col h-full hover:border-zinc-500 transition-colors duration-500" title="Integrazione CRM">
+                    <div class="mb-4 p-2 bg-card/50 rounded-lg w-fit border border-border">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-orange-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <p class="text-muted-foreground text-sm mb-6 flex-grow">
+                        Centralizza i dati dei clienti. Sincronizziamo HubSpot, Salesforce e tool custom per una visione a 360°.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mt-auto">
+                        <img src="https://cdn.simpleicons.org/hubspot/white" class="w-6 h-6 tech-icon transition-opacity hover:opacity-80" title="HubSpot" alt="HubSpot" />
+                        <img src="https://cdn.simpleicons.org/salesforce/white" class="w-6 h-6 tech-icon transition-opacity hover:opacity-80" title="Salesforce" alt="Salesforce" />
+                    </div>
+                </BentoCard>
+
+                <!-- 5. Data & Analytics -->
+                <BentoCard class="group flex flex-col h-full hover:border-zinc-500 transition-colors duration-500" title="Data & Analytics">
+                    <div class="mb-4 p-2 bg-card/50 rounded-lg w-fit border border-border">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-rose-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                    </div>
+                    <p class="text-muted-foreground text-sm mb-6 flex-grow">
+                        Dashboard direzionali per visualizzare KPI in tempo reale. Trasforma i dati grezzi in decisioni strategiche.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mt-auto">
+                        <img src="https://cdn.simpleicons.org/googlebigquery/white" class="w-6 h-6 tech-icon transition-opacity hover:opacity-80" title="Google BigQuery" alt="BigQuery" />
+                        <img src="https://cdn.simpleicons.org/looker/white" class="w-6 h-6 tech-icon transition-opacity hover:opacity-80" title="Looker" alt="Looker" />
+                    </div>
+                </BentoCard>
+
+                 <!-- 6. Consulenza Strategica -->
+				<BentoCard class="group flex flex-col h-full hover:border-zinc-500 transition-colors duration-500" title="Consulenza Strategica">
+                     <div class="mb-4 p-2 bg-card/50 rounded-lg w-fit border border-border">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><path d="M22 17l-3-3"/><path d="M5 14l-3 3"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+					<p class="text-muted-foreground text-sm mb-6 flex-grow">Audit tecnologici e roadmap di adozione AI. Non solo codice, ma strategia di business.</p>
+                     <div class="flex flex-wrap gap-4 mt-auto">
+                        <!-- Audit -->
+                        <div title="Audit Tecnologico" class="text-foreground transition-opacity hover:opacity-80">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+                        </div>
+                        <!-- Roadmap -->
+                        <div title="Roadmap Strategica" class="text-foreground transition-opacity hover:opacity-80">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        </div>
+                        <!-- Training -->
+                        <div title="Training e Formazione" class="text-foreground transition-opacity hover:opacity-80">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        </div>
+                    </div>
+				</BentoCard>
+
+			</div>
+		</section>
+
+		<!-- About Section -->
+		<section id="about" class="max-w-6xl mx-auto mb-20 md:mb-32 pt-12 md:pt-20 px-4">
+            <div class="mb-16 text-center md:text-left grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
+                <div>
+                     <span class="text-emerald-500 font-mono text-sm tracking-wider uppercase">Chi Siamo</span>
+                <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6">
+                    Specialisti in <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-emerald-200 to-emerald-500 dark:from-white dark:via-emerald-400 dark:to-emerald-600">Automazioni e AI.</span>
+                </h2>
+                
+                <div class="space-y-6 text-lg text-muted-foreground leading-relaxed">
+                    <p class="text-foreground font-medium border-l-2 border-emerald-500 pl-4">
+                        "Non siamo la solita consulenza IT: facciamo una cosa, ma la facciamo bene."
+                    </p>
+                </div>
+                </div>
+                <div class="text-muted-foreground text-lg space-y-6 pt-8 md:pt-16">
+                    <p>
+                        Studio Alkan SRL non è una classica società di consulenza IT. Siamo specializzati in automazioni aziendali e AI.
+                    </p>
+                    <p>
+                        Ci concentriamo su un'area specifica, garantendo competenza e risultati superiori.
+                    </p>
+                    <p>
+                        Il nostro <strong>focus laser</strong> ci permette di offrire soluzioni innovative e su misura per le vostre esigenze.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Card 1: Focus Laser -->
+                <BentoCard class="md:col-span-1" title="Focus Laser">
+                    <p class="text-muted-foreground text-sm mb-6 mt-2">
+                        Studio Alkan non è una classica società di consulenza. Ci concentriamo su un'area specifica per offrirti soluzioni su misura.
+                    </p>
+                    <ul class="space-y-2 text-sm text-foreground/80 font-mono">
+                        <li class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span> Automazione Processi
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span> Integrazione AI
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span> Sistemi Scalabili
+                        </li>
+                    </ul>
+                    <StudioButton variant="outline" href="#contact" class="w-full justify-center mt-6">
+                        Scopri il Metodo
+                    </StudioButton>
+                </BentoCard>
+
+                <!-- Card 2: Time/Goal (Text Only) -->
+                <BentoCard class="md:col-span-2 group relative overflow-hidden flex flex-col justify-center" gradient={true}>
+                     <div class="p-10 flex flex-col justify-center relative z-10">
+                        <h3 class="text-3xl font-bold text-foreground mb-4">Vendiamo Tempo,<br/><span class="text-muted-foreground">Non Solo Software.</span></h3>
+                        <p class="text-muted-foreground text-lg leading-relaxed mb-8 max-w-2xl">
+                            Il nostro obiettivo è recuperare fino a <strong>40 ore a settimana</strong> per il tuo team.
+                            Supera i blocchi dei processi manuali e torna a concentrarti sull'innovazione.
+                        </p>
+                        <div class="flex gap-4 text-xs font-mono text-emerald-500 font-bold uppercase tracking-wider">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                                Efficienza Max
+                            </span>
+                        </div>
+                     </div>
+                </BentoCard>
+
+
+
+            </div>
+		</section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="max-w-5xl mx-auto pt-20 border-t border-zinc-800/50">
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 py-20">
+                <!-- Info -->
+                <div class="flex flex-col justify-center">
+                    <span class="text-emerald-500 font-mono text-sm tracking-wider uppercase">Contatti</span>
+                <h1 class="text-4xl font-bold tracking-tight text-foreground mb-6">
+                    Parla con noi.
+                </h1>
+                <p class="text-xl text-muted-foreground">
+                    Raccontaci le tue sfide operative. Ti risponderemo con una strategia concreta.
+                </p>
+
+                    <div class="space-y-4">
+                        <a href="mailto:studioalkan@proton.me" class="block p-4 border border-border rounded-lg hover:bg-card transition-colors">
+                            <div class="text-xs text-muted-foreground uppercase tracking-widest mb-1">Email</div>
+                            <div class="text-foreground font-mono">studioalkan@proton.me</div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <form class="p-8 border border-border rounded-xl bg-card/50 backdrop-blur-sm">
+                    <div class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <label for="name" class="text-sm font-medium text-foreground">Nome</label>
+                            <input type="text" id="name" class="flex h-10 w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-zinc-500" placeholder="Alessandro Volta" />
+                        </div>
+                        <div class="space-y-2">
+                            <label for="company" class="text-sm font-medium text-foreground">Azienda</label>
+                            <input type="text" id="company" class="flex h-10 w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-zinc-500" placeholder="Nexus Industries" />
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label for="email" class="text-sm font-medium text-foreground">Email</label>
+                        <input type="email" id="email" class="flex h-10 w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-zinc-500" placeholder="alessandro@nexus.ai" />
+                    </div>
+
+                    <div class="space-y-2">
+                        <label for="message" class="text-sm font-medium text-foreground">Messaggio</label>
+                        <textarea id="message" rows="4" class="flex w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-zinc-500" placeholder="Vorrei automatizzare..."></textarea>
+                    </div>
+
+                        <StudioButton variant="rainbow" class="w-full">Invia Richiesta</StudioButton>
+                    </div>
+                </form>
+            </div>
+        </section>
+		
+	</main>
+</Layout>

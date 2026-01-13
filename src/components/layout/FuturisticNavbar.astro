@@ -1,0 +1,55 @@
+---
+---
+
+<nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md bg-black/20 border-b border-white/5">
+    <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="/" class="text-2xl font-bold font-['Exo_2'] tracking-tighter text-white">
+            STUDIO<span class="text-neon-cyan">ALKAN</span>
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-8">
+            <a href="/" class="text-sm font-medium hover:text-neon-cyan transition-colors">HOME</a>
+            <a href="/about" class="text-sm font-medium hover:text-neon-cyan transition-colors">CHI SIAMO</a>
+            <a href="/services" class="text-sm font-medium hover:text-neon-cyan transition-colors">SERVIZI</a>
+            <a href="mailto:studioalkan@proton.me" class="px-5 py-2 text-xs font-bold border border-neon-cyan text-neon-cyan rounded hover:bg-neon-cyan hover:text-black transition-all">
+                CONTATTACI
+            </a>
+        </div>
+
+        <!-- Mobile Menu Button (Hamburger) -->
+        <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-xl z-40 transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center space-y-8 md:hidden">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white/50 hover:text-white">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <a href="/" class="text-2xl font-bold hover:text-neon-cyan">HOME</a>
+        <a href="/about" class="text-2xl font-bold hover:text-neon-cyan">CHI SIAMO</a>
+        <a href="/services" class="text-2xl font-bold hover:text-neon-cyan">SERVIZI</a>
+        <a href="mailto:studioalkan@proton.me" class="text-xl text-neon-cyan border border-neon-cyan px-8 py-3 rounded hover:bg-neon-cyan hover:text-black">CONTATTACI</a>
+    </div>
+</nav>
+
+<script>
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const closeBtn = document.getElementById('close-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+
+    menuBtn?.addEventListener('click', () => {
+        menu?.classList.remove('translate-x-full');
+    });
+
+    closeBtn?.addEventListener('click', () => {
+        menu?.classList.add('translate-x-full');
+    });
+</script>
